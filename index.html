@@ -67,22 +67,31 @@ function play(){
 	console.log('b');
 	alert('b');
 }
+getPhoneGapPath: function () {
+    'use strict';
+    var path = window.location.pathname;
+    var phoneGapPath = path.substring(0, path.lastIndexOf('/') + 1);
+    return phoneGapPath;
+}
+
+var resource = getPhoneGapPath() + 'audio/audio.mp3';
 function play2(){
 	alert('a2');
 	console.log('a2');
 	VideoPlayer.play(
 			"file:///android_asset/www/videos/video01.mp4",
 			{
-					volume: 0.5,
-					scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT_WITH_CROPPING
+					volume: 1,
+					scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT
 			},
 			function (err) {
 					alert(err);
 					console.log(err);
 			}
 	);
-	console.log('b2');
-	alert('b2');
+	
+	console.log(getPhoneGapPath());
+	alert(getPhoneGapPath());
 }
 </script>
 
