@@ -82,7 +82,7 @@ function playX(){
 	}else if((navigator.userAgent.match(/iPad/i))  == "iPad" || (navigator.userAgent.match(/iPhone/i))  == "iPhone" ){
 		//play3();
 		(function ($) {
-			$('#video_ios').html('123<video id="video01" width="300" height="300" controls><source src="'+archivo+'" type="video/mp4" /></video>');
+		$('#video_ios').html('123<video id="video01" width="300" height="300" controls><source src="'+archivo+'" type="video/mp4" /></video>');
 		}(jQuery))
 	}
 }
@@ -487,6 +487,7 @@ function letra_size(){
                     <a href="javascript:play();">Play()</a><br><br>
                     <a href="javascript:play2();">Play2()</a><br><br>
                     <a href="javascript:play3();">Play3()</a><br><br>
+                    <a href="javascript:playX();">PlayX()</a><br><br>
                     <a href="file:///android_asset/www/videos/video01.mp4">Archivo</a>
                     <div id="video_ios"></div>
                     </p>
