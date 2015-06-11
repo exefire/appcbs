@@ -31,6 +31,24 @@
 <script type="text/javascript" src="scripts/custom.js"></script>
 
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script>
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+	window.plugins.html5Video.initialize({
+			"video1" : "videos/video01.mp4"
+	});
+	alert('listo');
+}
+
+function play(){
+	alert('a');
+	window.plugins.html5Video.play("video1", function videoIsFinished() {
+		alert("Video is finished");
+	});
+	alert('b');
+}
+</script>
 
 </head>
 <body> 

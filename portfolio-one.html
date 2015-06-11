@@ -248,6 +248,7 @@ function onDeviceReady() {
 	window.plugins.html5Video.initialize({
       "video1" : "videos/video01.mp4"
   });
+	alert('listo');
 }
 
 function play(){
@@ -255,6 +256,7 @@ function play(){
 	window.plugins.html5Video.play("video1", function videoIsFinished() {
 		alert("Video is finished");
 	});
+	alert('b');
 }
 
 
