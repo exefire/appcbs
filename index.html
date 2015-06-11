@@ -34,47 +34,21 @@
 <script>
 document.addEventListener("deviceready", onDeviceReady, false);
 
-function gotFS(fileSystem) {
-    alert("got filesystem");
-    // save the file system for later access
-    console.log(fileSystem.root.fullPath);
-    window.rootFS = fileSystem.root;
-		alert(rootFS);
-}
-
 function onDeviceReady() {
-	window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-
 	alert('listo');
 	console.log('listo');
 }
 
 function play(){
-	alert('a');
-	console.log('a');
-	VideoPlayer.play(
-			"file:///videos/video01.mp4",
-			{
-					volume: 0.5,
-					scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT_WITH_CROPPING
-			},
-			function (err) {
-					alert(err);
-					console.log(err);
-			}
-	);
-	console.log('b');
-	alert('b');
+	console.log(getPhoneGapPath());
+	alert(getPhoneGapPath());
 }
-getPhoneGapPath: function () {
+function getPhoneGapPath() {
     'use strict';
     var path = window.location.pathname;
     var phoneGapPath = path.substring(0, path.lastIndexOf('/') + 1);
     return phoneGapPath;
 }
-
-var resource = getPhoneGapPath() + 'audio/audio.mp3';
 function play2(){
 	alert('a2');
 	console.log('a2');
@@ -90,8 +64,8 @@ function play2(){
 			}
 	);
 	
-	console.log(getPhoneGapPath());
-	alert(getPhoneGapPath());
+	console.log('b');
+	alert('b');
 }
 </script>
 
