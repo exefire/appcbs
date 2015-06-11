@@ -53,7 +53,7 @@ function play2(){
 	alert('a2');
 	console.log('a2');
 	VideoPlayer.play(
-			"file:///android_asset/www/videos/video01.mp4",
+			'file://'+getPhoneGapPath()+'videos/video01.mp4',
 			{
 					volume: 1,
 					scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT
@@ -66,6 +66,10 @@ function play2(){
 	
 	console.log('b');
 	alert('b');
+}
+function play3(){
+	var archivo = 'file://'+getPhoneGapPath()+'videos/video01.mp4';
+	window.open(archivo);
 }
 </script>
 
@@ -467,6 +471,7 @@ function letra_size(){
                     <p>
                     <a href="javascript:play();">Play()</a><br><br>
                     <a href="javascript:play2();">Play2()</a><br><br>
+                    <a href="javascript:play3();">Play3()</a><br><br>
                     <a href="file:///android_asset/www/videos/video01.mp4">Archivo</a>
                     </p>
                     <video id="video1" loop></video>
