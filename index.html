@@ -50,10 +50,11 @@ function getPhoneGapPath() {
     return phoneGapPath;
 }
 function play2(){
-	alert('a2');
-	console.log('a2');
+	var archivo = 'file://'+getPhoneGapPath()+'videos/video01.mp4';
+	alert(archivo);
+	console.log(archivo);
 	VideoPlayer.play(
-			'file://'+getPhoneGapPath()+'videos/video01.mp4',
+			archivo,
 			{
 					volume: 1,
 					scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT
