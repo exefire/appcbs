@@ -80,12 +80,12 @@
 </div>
 
 <div class="header">
-    <a href="#" class="main-logo"></a>
     <div class="header-controls">
-        <a href="#" class="open-more"><i class="fa fa-envelope"></i></a>
-        <a href="#" class="open-slide"><i class="fa fa-star"></i></a>
+        <!--<a href="#" class="open-more"><i class="fa fa-envelope"></i></a>
+        <a href="#" class="open-slide"><i class="fa fa-star"></i></a>-->
         <a href="#" class="open-menu"><i class="fa fa-navicon"></i></a>
     </div>
+    <a href="#" class="main-logo">Bomberos Santiago</a>
 </div>
        
 <div class="all-elements">
@@ -241,15 +241,35 @@
         </div>
     </div>
     
+<script>
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+	window.plugins.html5Video.initialize({
+      "video1" : "videos/video01.mp4"
+  });
+}
+
+function play(){
+	alert('a');
+	window.plugins.html5Video.play("video1", function videoIsFinished() {
+		alert("Video is finished");
+	});
+}
+
+
+
+</script>
+    
     <!-- Page Content-->
     <div id="content" class="snap-content">
         <div class="header-clear"></div>
         
         <div class="content">
-            <div class="portfolio-one">
+           <div class="portfolio-one">
                 <div class="portfolio-one-item full-bottom">
                     <div class="portfolio-one-image">
-                        <a href="images/pictures/3.jpg" class="swipebox" title="Caption Here">
+                        <a href="javascript:play()" title="Caption Here">
                             <i class="fa fa-plus"></i>
                         </a>
                         <img src="images/pictures/3.jpg" class="responsive-image">
