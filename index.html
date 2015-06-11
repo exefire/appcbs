@@ -77,12 +77,17 @@ function play3(){
 
 function playX(){
 	var archivo = 'file://'+getPhoneGapPath()+'videos/video01.mp4';
+	var poster = 'file://'+getPhoneGapPath()+'videos/video01.png';
 	if((navigator.userAgent.match(/Android/i)) == "Android"){
 		play2();
 	}else if((navigator.userAgent.match(/iPad/i))  == "iPad" || (navigator.userAgent.match(/iPhone/i))  == "iPhone" ){
 		//play3();
 		(function ($) {
-		$('#video_ios').html('123<video id="video01" width="300" height="300" controls><source src="'+archivo+'" type="video/mp4" /></video>');
+			var ancho = $('#contenido_blog').width();
+			if(ancho<100){
+				ancho = 200;
+			}
+			$('#video_ios').html('<video id="video01" width="'+ancho+'" height="'+ancho+'" controls><source src="'+archivo+'" type="video/mp4" poster="'+poster+'" /></video>');
 		}(jQuery))
 	}
 }
@@ -475,7 +480,7 @@ function letra_size(){
          <!-- Page Content-->
          <div class="content">
             <div class="blog-posts">
-                <div class="blog-post">
+                <div class="blog-post" id="contenido_blog">
                     <a class="blog-post-image" href="#"><img src="images/pictures/3ww.jpg" alt="img"></a>
                     <h3 class="blog-post-title">Blog Post Title</h3>
                     <p class="blog-post-text">
@@ -491,7 +496,6 @@ function letra_size(){
                     <a href="file:///android_asset/www/videos/video01.mp4">Archivo</a>
                     <div id="video_ios"></div>
                     </p>
-                    <video id="video1" loop></video>
                     <p class="blog-post-date"><i class="fa fa-calendar"></i>20/01/2015</p>
                     <p class="blog-post-more"><a href="#">Read More<i class="fa fa-angle-right"></i></a></p>
                 </div>
