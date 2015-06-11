@@ -87,6 +87,8 @@ function playX(){
 			if(ancho<100){
 				ancho = 200;
 			}
+			alert('Ancho: '+ancho);
+			alert(poster);
 			$('#video_ios').html('<video id="video01" width="'+ancho+'" height="'+ancho+'" controls><source src="'+archivo+'" type="video/mp4" poster="'+poster+'" /></video>');
 		}(jQuery))
 	}
