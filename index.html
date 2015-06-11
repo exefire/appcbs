@@ -47,10 +47,12 @@ function onDeviceReady() {
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 
 	alert('listo');
+	console.log('listo');
 }
 
 function play(){
 	alert('a');
+	console.log('a');
 	VideoPlayer.play(
 			"file:///videos/video01.mp4",
 			{
@@ -59,9 +61,28 @@ function play(){
 			},
 			function (err) {
 					alert(err);
+					console.log(err);
 			}
 	);
+	console.log('b');
 	alert('b');
+}
+function play2(){
+	alert('a2');
+	console.log('a2');
+	VideoPlayer.play(
+			"file:///android_asset/www/videos/video01.mp4",
+			{
+					volume: 0.5,
+					scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT_WITH_CROPPING
+			},
+			function (err) {
+					alert(err);
+					console.log(err);
+			}
+	);
+	console.log('b2');
+	alert('b2');
 }
 </script>
 
@@ -461,8 +482,9 @@ function letra_size(){
                         tempor et. In eget nunc aliquam, sagittis risus vitae, pharetra enim.
                     </p>
                     <p>
-                    <a href="javascript:play();">Play()</a><br>
-                    <a href="file:///videos/video01.mp4">Archivo</a>
+                    <a href="javascript:play();">Play()</a><br><br>
+                    <a href="javascript:play2();">Play2()</a><br><br>
+                    <a href="file:///android_asset/www/videos/video01.mp4">Archivo</a>
                     </p>
                     <video id="video1" loop></video>
                     <p class="blog-post-date"><i class="fa fa-calendar"></i>20/01/2015</p>
