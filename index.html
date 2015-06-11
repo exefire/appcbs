@@ -34,18 +34,33 @@
 <script>
 document.addEventListener("deviceready", onDeviceReady, false);
 
+function gotFS(fileSystem) {
+    alert("got filesystem");
+    // save the file system for later access
+    console.log(fileSystem.root.fullPath);
+    window.rootFS = fileSystem.root;
+		alert(rootFS);
+}
+
 function onDeviceReady() {
-	window.plugins.html5Video.initialize({
-			"video1" : "videos/video01.mp4"
-	});
+	window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+
 	alert('listo');
 }
 
 function play(){
 	alert('a');
-	window.plugins.html5Video.play("video1", function videoIsFinished() {
-		alert("Video is finished");
-	});
+	VideoPlayer.play(
+			"file:///videos/video01.mp4",
+			{
+					volume: 0.5,
+					scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT_WITH_CROPPING
+			},
+			function (err) {
+					alert(err);
+			}
+	);
 	alert('b');
 }
 </script>
@@ -447,7 +462,7 @@ function letra_size(){
                     </p>
                     <p>
                     <a href="javascript:play();">Play()</a><br>
-                    <a href="file://videos/video01.mp4">Archivo</a>
+                    <a href="file:///videos/video01.mp4">Archivo</a>
                     </p>
                     <video id="video1" loop></video>
                     <p class="blog-post-date"><i class="fa fa-calendar"></i>20/01/2015</p>
